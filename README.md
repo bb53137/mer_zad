@@ -1,4 +1,4 @@
-# Customer Management demo verzija projekt
+# Upravljanje korisnicima demo verzija projekt
 
 Ovaj projekt je demo verzija modula za upravljanje velikim brojem korisnika (preko 100000 zapisa), izrađena pomoću .NET 8 Web API-ja i Angulara.
 
