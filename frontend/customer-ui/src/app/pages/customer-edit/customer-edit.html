@@ -1,0 +1,58 @@
+<div class="page">
+  <h1>Uredi korisnika</h1>
+
+  <div *ngIf="loading">Učitavanje...</div>
+
+  <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="save()">
+    <div class="form-group">
+      <label>Ime</label>
+      <input type="text" formControlName="firstName" />
+      <small *ngIf="form.controls.firstName.touched && form.controls.firstName.invalid">
+        Ime je obavezno i treba sadržavati barem dva znaka.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Prezime</label>
+      <input type="text" formControlName="lastName" />
+      <small *ngIf="form.controls.lastName.touched && form.controls.lastName.invalid">
+        Prezime je obavezno i treba sadržavati barem dva znaka.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" formControlName="email" />
+      <small *ngIf="form.controls.email.touched && form.controls.email.invalid">
+        Valjan mail je obavezan.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Mobitel</label>
+      <input type="text" formControlName="phone" />
+    </div>
+
+    <div class="form-group">
+      <label>Grad</label>
+      <input type="text" formControlName="city" />
+    </div>
+
+    <div class="form-group">
+      <label>Država</label>
+      <input type="text" formControlName="country" />
+    </div>
+
+    <div class="form-group checkbox">
+      <label>
+        <input type="checkbox" formControlName="isActive" />
+        Je aktivan
+      </label>
+    </div>
+
+    <div class="actions">
+      <button type="submit">Spremi</button>
+      <a routerLink="/customers">Nazad</a>
+    </div>
+  </form>
+</div>

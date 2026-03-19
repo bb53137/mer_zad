@@ -1,0 +1,46 @@
+.page {
+  padding: 24px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.top-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+input,
+select,
+button,
+a {
+  padding: 8px 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.loading {
+  margin: 20px 0;
+  font-weight: bold;
+}

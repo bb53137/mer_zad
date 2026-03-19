@@ -1,0 +1,77 @@
+<div class="page">
+  <div class="header">
+    <h1>Korisnici</h1>
+    <p>Ukupni broj zapisa: {{ totalCount }}</p>
+  </div>
+
+  <div class="top-actions">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+      placeholder="Pretraži pomoću imena"
+    />
+
+    <select [(ngModel)]="selectedCountry" (change)="onCountryChange()">
+      <option *ngFor="let country of countries" [value]="country">
+        {{ country || 'Sve države' }}
+      </option>
+    </select>
+
+    <button (click)="deactivateSelected()">Deaktiviraj označeno</button>
+    <a routerLink="/stats">Odi na statistiku</a>
+  </div>
+
+
+
+
+
+  <div *ngIf="loading && customers.length === 0" class="loading">
+    Učitavanje...
+  </div>
+
+  <div *ngIf="!loading && customers.length === 0">
+  Korisnici nisu pronađeni.
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Ime i prezime</th>
+        <th>Email</th>
+        <th>Grad</th>
+        <th>Država</th>
+        <th>Status</th>
+        <th>Akcije</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let customer of customers" (click)="editCustomer(customer.id)" style="cursor: pointer;">
+        <td>
+          <input
+            type="checkbox"
+            [checked]="selectedIds.includes(customer.id)"
+            (click)="$event.stopPropagation()"
+            (change)="toggleSelection(customer.id, $any($event.target).checked)"
+          />
+        </td>
+        <td>{{ getFullName(customer) }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.city }}</td>
+        <td>{{ customer.country }}</td>
+        <td>{{ customer.isActive ? 'Aktivan' : 'Neaktivan' }}</td>
+        <td>
+          <button (click)="editCustomer(customer.id); $event.stopPropagation()">Uredi</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="pageNumber === 1">Prošla stranica</button>
+    <span>Stranica {{ pageNumber }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="pageNumber === totalPages">Sljedeća</button>
+  </div>
+</div>
