@@ -38,7 +38,7 @@ public static class DbSeeder
         ("Napulj", "Italija"),
         ("Pariz", "Francuska"),
         ("Lyon", "Francuska"),
-        ("Budimpešta", " Mađarska"),
+        ("Cannes", " Francuska"),
         ("Varšava", "Poljska"),
         ("Amsterdam", "Nizozemska"),
         ("Bern", "Švicarska"),

@@ -33,7 +33,7 @@ export class CustomerListComponent implements OnInit {
   searchTerm = '';
   selectedCountry = '';
 
-  countries: string[] = ['','Croatia','Njemačka','Austrija','Španjolska','Francuska','Srbija','Crna Gora','Italija','Mađaraska','Poljska','Nizozemska','Švicarska','Albanija','Bosna i Hercegovina'];
+  countries: string[] = ['','Hrvatska','Njemačka','Austrija','Španjolska','Francuska','Srbija','Crna Gora','Italija','Poljska','Nizozemska','Švicarska','Albanija','Bosna i Hercegovina'];
 
   ngOnInit(): void {
     this.searchSubject

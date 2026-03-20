@@ -46,14 +46,14 @@ public class CustomerService : ICustomerService
 
         if (!string.IsNullOrWhiteSpace(city))
         {
-            var cityFilter = city.Trim().ToLower();
-            query = query.Where(x => x.City.ToLower() == cityFilter);
+            var cityFilter = city.Trim();
+            query = query.Where(x => x.City == cityFilter);
         }
 
         if (!string.IsNullOrWhiteSpace(country))
         {
-            var countryFilter = country.Trim().ToLower();
-            query = query.Where(x => x.Country.ToLower() == countryFilter);
+            var countryFilter = country.Trim();
+            query = query.Where(x => x.Country == countryFilter);
         }
 
         if (isActive.HasValue)
